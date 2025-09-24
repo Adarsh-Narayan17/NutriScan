@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScan - Your Smart Food Scanner</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #ff7f50; /* Coral Orange */
+            color: #fff;
+            padding: 20px 0;
+            border-bottom: #ff6347 4px solid; /* Tomato Orange */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            float: right;
+            margin-top: 5px;
+        }
+
+        header li {
+            display: inline;
+            padding: 0 15px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        #showcase {
+            min-height: 500px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        #showcase .showcase-content {
+            max-width: 600px;
+        }
+
+        #showcase h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        #showcase p {
+            font-size: 22px;
+        }
+
+        #main {
+            padding: 40px 20px;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #ff6347;
+        }
+
+        #features {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            flex-basis: 30%;
+            background: #f9f9f9;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-box h3 {
+            font-size: 22px;
+            color: #ff7f50;
+            margin-bottom: 10px;
+        }
+
+        #more-features {
+            padding: 60px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .feature-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 30px;
+        }
+
+        .feature-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-item:nth-child(even) img {
+            margin-right: 0;
+            margin-left: 30px;
+        }
+
+        .feature-text h3 {
+            color: #ff6347;
+        }
+
+        #cta {
+            background: #ff7f50;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: #ff6347;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #f1f1f1;
+        }
+
+
+        footer {
+            padding: 25px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    header #branding h1 {
+        font-size: 24px;
+    }
+    
+    header ul {
+        float: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    header li {
+        display: block;
+        padding: 5px 0;
+    }
+    
+    #showcase h1 {
+        font-size: 36px;
+    }
+    
+    #showcase p {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    #features {
+        flex-direction: column;
+    }
+    
+    .feature-box {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .feature-item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    .feature-item img {
+        margin: 0 0 20px 0 !important;
+        width: 120px;
+        height: 120px;
+    }
+    
+    #cta h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    #showcase h1 {
+        font-size: 28px;
+    }
+    
+    #showcase p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+/* Scanner Styles */
+#scanner {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.scanner-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#scanner-area {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#preview {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.scanner-line {
+    width: 80%;
+    height: 2px;
+    background: #ff6347;
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0%, 100% { transform: translateY(-50px); }
+    50% { transform: translateY(50px); }
+}
+
+.scanner-controls {
+    margin: 20px 0;
+}
+
+.btn-scanner {
+    background: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-scanner:hover {
+    background: #ff7f50;
+}
+
+#scan-result {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#product-info {
+    margin-top: 15px;
+}
+
+.product-detail {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pros {
+    border-left: 4px solid #4CAF50;
+}
+
+.cons {
+    border-left: 4px solid #f44336;
+}
+
+.product-detail h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.product-detail ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Mobile Scanner Adjustments */
+@media (max-width: 768px) {
+    #preview {
+        height: 250px;
+    }
+    
+    .btn-scanner {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 5px;
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+
+/* Enhanced Scanner Styles */
+#scanner {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.scanner-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#scanner-area {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#preview {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+#scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.scanner-frame {
+    width: 80%;
+    height: 60%;
+    border: 2px solid #ff6347;
+    border-radius: 8px;
+    position: relative;
+    background: rgba(255, 99, 71, 0.1);
+}
+
+.scanner-frame::before,
+.scanner-frame::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ff6347;
+}
+
+.scanner-frame::before {
+    top: -3px;
+    left: -3px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.scanner-frame::after {
+    bottom: -3px;
+    right: -3px;
+    border-left: none;
+    border-top: none;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6347, transparent);
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(-100px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100px); opacity: 0; }
+}
+
+.scanner-text {
+    margin-top: 20px;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+#scanner-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.status-on {
+    background: rgba(76, 175, 80, 0.9) !important;
+}
+
+.scanner-controls {
+    margin: 20px 0;
+}
+
+.btn-scanner {
+    background: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-scanner:hover {
+    background: #ff7f50;
+}
+
+.btn-scanner:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+#loading {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#scan-result {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+#product-info {
+    margin-top: 15px;
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.product-title {
+    flex: 1;
+}
+
+.product-title h4 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.product-title p {
+    margin: 5px 0 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.product-detail {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pros {
+    border-left: 4px solid #4CAF50;
+}
+
+.cons {
+    border-left: 4px solid #f44336;
+}
+
+.neutral {
+    border-left: 4px solid #2196F3;
+}
+
+.product-detail h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.product-detail ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.product-detail li {
+    margin: 5px 0;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.nutrition-item {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Mobile Scanner Adjustments */
+@media (max-width: 768px) {
+    #preview {
+        height: 250px;
+    }
+    
+    .btn-scanner {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 5px;
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    .product-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .nutrition-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span style="font-weight:100;">Nutri</span>Scan</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="showcase-content">
+            <h1>Eat Smarter, Live Better.</h1>
+            <p>Scan any barcode to instantly see the real story behind your food. Make confident and healthy choices, every time.</p>
+        </div>
+    </section>
+
+
+
+   <!-- Scanner Section -->
+<section id="scanner" class="container">
+    <h2 class="section-title">Try Our Scanner</h2>
+    <div class="scanner-container">
+        <div id="scanner-area">
+            <video id="preview" autoplay playsinline></video>
+            <canvas id="scanner-canvas" style="display: none;"></canvas>
+            <div id="scanner-overlay">
+                <div class="scanner-frame">
+                    <div class="scanner-line"></div>
+                </div>
+                <p class="scanner-text">Position barcode within the frame</p>
+            </div>
+            <div id="scanner-status">Camera Off</div>
+        </div>
+        <div class="scanner-controls">
+            <button id="start-scan" class="btn-scanner">Start Camera</button>
+            <button id="stop-scan" class="btn-scanner" style="display:none;">Stop Camera</button>
+        </div>
+        <div id="loading" style="display:none;">
+            <p>Fetching product information...</p>
+        </div>
+        <div id="scan-result" style="display:none;">
+            <h3>Product Information:</h3>
+            <div id="product-info"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+    <section id="main" class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div id="features">
+            <div class="feature-box">
+                <h3>1. Scan Barcode</h3>
+                <p>Use your phone's camera to instantly scan the barcode on any packaged food.</p>
+            </div>
+            <div class="feature-box">
+                <h3>2. Get Instant Analysis</h3>
+                <p>Our app provides a clear, concise summary of pros and cons, from nutrition to environmental impact.</p>
+            </div>
+            <div class="feature-box">
+                <h3>3. Make an Informed Choice</h3>
+                <p>Use our simple breakdown to choose products that align with your health goals and values.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="more-features">
+        <div class="container">
+            <h2 class="section-title">Go Beyond the Label</h2>
+            <div class="feature-item">
+                <img src="https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Nutrition Chart">
+                <div class="feature-text">
+                    <h3>Allergen & Ingredient Alerts</h3>
+                    <p>Set up your dietary profile with allergens like gluten, nuts, or dairy. We'll instantly flag products that contain them, so you can shop with peace of mind.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Personalized Goals">
+                <div class="feature-text">
+                    <h3>Personalized Health Goals</h3>
+                    <p>Whether you're tracking sugar, aiming for high protein, or avoiding preservatives, NutriScan helps you find foods that fit your unique lifestyle and dietary needs.</p>
+                </div>
+            </div>
+             <div class="feature-item">
+                <img src="https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Community">
+                <div class="feature-text">
+                    <h3>Truth in Advertising</h3>
+                    <p>Is that "all-natural" claim really true? We analyze marketing taglines and compare them against the actual ingredients to help you see past the hype.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2>Ready to Take Control of Your Health?</h2>
+            <p>Download NutriScan today and transform the way you shop for food.</p>
+            <a href="#" class="btn">Download Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>NutriScan &copy; 2025</p>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+<script>
+let isScanning = false;
+let stream = null;
+
+document.getElementById('start-scan').addEventListener('click', startScanning);
+document.getElementById('stop-scan').addEventListener('click', stopScanning);
+
+async function startScanning() {
+    try {
+        // Update UI first
+        document.getElementById('scanner-status').textContent = 'Starting Camera...';
+        document.getElementById('start-scan').disabled = true;
+        
+        // Get camera stream
+        stream = await navigator.mediaDevices.getUserMedia({
+            video: { 
+                facingMode: "environment",
+                width: { min: 320, ideal: 640, max: 1280 },
+                height: { min: 240, ideal: 480, max: 720 }
+            }
+        });
+        
+        const video = document.getElementById('preview');
+        video.srcObject = stream;
+        
+        // Wait for video to load
+        await new Promise((resolve) => {
+            video.onloadedmetadata = () => {
+                video.play();
+                resolve();
+            };
+        });
+        
+        // Initialize Quagga after video is ready
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: video,
+                constraints: {
+                    width: 640,
+                    height: 480,
+                    facingMode: "environment"
+                }
+            },
+            locator: {
+                patchSize: "medium",
+                halfSample: true
+            },
+            numOfWorkers: 2,
+            decoder: {
+                readers: [
+                    "code_128_reader",
+                    "ean_reader",
+                    "ean_8_reader",
+                    "code_39_reader"
+                ]
+            },
+            locate: true
+        }, function(err) {
+            if (err) {
+                console.error('Quagga initialization error:', err);
+                alert('Scanner initialization failed: ' + err.message);
+                stopScanning();
+                return;
+            }
+            
+            console.log('Quagga initialized successfully');
+            Quagga.start();
+            isScanning = true;
+            
+            // Update UI
+            document.getElementById('scanner-status').textContent = 'Camera On - Point at barcode';
+            document.getElementById('scanner-status').classList.add('status-on');
+            document.getElementById('start-scan').style.display = 'none';
+            document.getElementById('stop-scan').style.display = 'inline-block';
+            document.getElementById('start-scan').disabled = false;
+        });
+
+        // Set up barcode detection
+        Quagga.onDetected(async function(data) {
+            const barcode = data.codeResult.code;
+            console.log('Barcode detected: ' + barcode);
+            
+            // Vibrate if supported
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
+            
+            // Show detection feedback
+            document.getElementById('scanner-status').textContent = 'Barcode Detected!';
+            
+            // Stop scanning and fetch info
+            stopScanning();
+            await fetchProductInfo(barcode);
+        });
+        
+    } catch (error) {
+        console.error('Camera access error:', error);
+        alert('Camera access denied or not available. Please allow camera permissions.');
+        document.getElementById('start-scan').disabled = false;
+        document.getElementById('scanner-status').textContent = 'Camera Access Denied';
+    }
+}
+
+function stopScanning() {
+    console.log('Stopping scanner...');
+    
+    if (isScanning && typeof Quagga !== 'undefined') {
+        Quagga.stop();
+        isScanning = false;
+    }
+    
+    if (stream) {
+        stream.getTracks().forEach(track => {
+            track.stop();
+            console.log('Camera track stopped');
+        });
+        stream = null;
+    }
+    
+    const video = document.getElementById('preview');
+    video.srcObject = null;
+    
+    // Update UI
+    document.getElementById('scanner-status').textContent = 'Camera Off';
+    document.getElementById('scanner-status').classList.remove('status-on');
+    document.getElementById('start-scan').style.display = 'inline-block';
+    document.getElementById('stop-scan').style.display = 'none';
+    document.getElementById('start-scan').disabled = false;
+}
+
+async function fetchProductInfo(barcode) {
+    console.log('Fetching product info for:', barcode);
+    
+    // Show loading
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('scan-result').style.display = 'none';
+    
+    try {
+        // Test with a known barcode first: 3017620422003 (Nutella)
+        const apiUrl = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+        console.log('API URL:', apiUrl);
+        
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'User-Agent': 'NutriScan-App/1.0'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('API Response:', data);
+        
+        document.getElementById('loading').style.display = 'none';
+        
+        if (data.status === 1 && data.product) {
+            displayProductInfo(data.product, barcode);
+        } else {
+            displayNotFound(barcode);
+        }
+        
+    } catch (error) {
+        console.error('API Error:', error);
+        document.getElementById('loading').style.display = 'none';
+        displayError(barcode, error.message);
+    }
+}
+
+function displayProductInfo(product, barcode) {
+    console.log('Displaying product info:', product);
+    document.getElementById('scan-result').style.display = 'block';
+    
+    // Analyze product data
+    const analysis = analyzeProduct(product);
+    
+    const productInfoDiv = document.getElementById('product-info');
+    productInfoDiv.innerHTML = `
+        <div class="product-header">
+            <img src="${product.image_url || product.image_front_url || 'https://via.placeholder.com/80x80?text=No+Image'}" 
+                 alt="${product.product_name || 'Product'}" class="product-image" 
+                 onerror="this.src='https://via.placeholder.com/80x80?text=No+Image'">
+            <div class="product-title">
+                <h4>${product.product_name || product.product_name_en || 'Unknown Product'}</h4>
+                <p><strong>Brand:</strong> ${product.brands || 'Unknown'}</p>
+                <p><strong>Barcode:</strong> ${barcode}</p>
+                ${product.categories ? `<p><strong>Category:</strong> ${product.categories.split(',')[0]}</p>` : ''}
+            </div>
+        </div>
+        
+        ${analysis.pros.length > 0 ? `
+        <div class="product-detail pros">
+            <h4>✅ Pros</h4>
+            <ul>
+                ${analysis.pros.map(pro => `<li>${pro}</li>`).join('')}
+            </ul>
+        </div>
+        ` : ''}
+        
+        ${analysis.cons.length > 0 ? `
+        <div class="product-detail cons">
+            <h4>❌ Cons</h4>
+            <ul>
+                ${analysis.cons.map(con => `<li>${con}</li>`).join('')}
+            </ul>
+        </div>
+        ` : ''}
+        
+        ${analysis.neutral.length > 0 ? `
+        <div class="product-detail neutral">
+            <h4>ℹ️ Additional Info</h4>
+            <ul>
+                ${analysis.neutral.map(info => `<li>${info}</li>`).join('')}
+            </ul>
+        </div>
+        ` : ''}
+        
+        ${product.nutriments && Object.keys(product.nutriments).length > 0 ? `
+        <div class="product-detail">
+            <h4>🥗 Nutrition (per 100g)</h4>
+            <div class="nutrition-grid">
+                ${product.nutriments['energy-kcal'] ? `<div class="nutrition-item"><strong>Calories</strong><br>${Math.round(product.nutriments['energy-kcal'])} kcal</div>` : ''}
+                ${product.nutriments.fat ? `<div class="nutrition-item"><strong>Fat</strong><br>${product.nutriments.fat}g</div>` : ''}
+                ${product.nutriments.carbohydrates ? `<div class="nutrition-item"><strong>Carbs</strong><br>${product.nutriments.carbohydrates}g</div>` : ''}
+                ${product.nutriments.proteins ? `<div class="nutrition-item"><strong>Protein</strong><br>${product.nutriments.proteins}g</div>` : ''}
+                ${product.nutriments.salt ? `<div class="nutrition-item"><strong>Salt</strong><br>${product.nutriments.salt}g</div>` : ''}
+                ${product.nutriments.sugars ? `<div class="nutrition-item"><strong>Sugar</strong><br>${product.nutriments.sugars}g</div>` : ''}
+            </div>
+        </div>
+        ` : ''}
+        
+        ${product.ingredients_text ? `
+        <div class="product-detail">
+            <h4>📋 Ingredients</h4>
+            <p style="font-size: 14px; line-height: 1.4;">${product.ingredients_text}</p>
+        </div>
+        ` : ''}
+    `;
+    
+    // Scroll to results
+    document.getElementById('scan-result').scrollIntoView({ behavior: 'smooth' });
+}
+
+function analyzeProduct(product) {
+    const pros = [];
+    const cons = [];
+    const neutral = [];
+    
+    // Analyze Nutri-Score
+    if (product.nutriscore_grade) {
+        const grade = product.nutriscore_grade.toUpperCase();
+        if (grade === 'A' || grade === 'B') {
+            pros.push(`Excellent nutrition score (Nutri-Score ${grade})`);
+        } else if (grade === 'C') {
+            neutral.push(`Average nutrition score (Nutri-Score ${grade})`);
+        } else if (grade === 'D' || grade === 'E') {
+            cons.push(`Poor nutrition score (Nutri-Score ${grade})`);
+        }
+    }
+    
+    // Check for certifications and labels
+    if (product.labels_tags) {
+        product.labels_tags.forEach(label => {
+            if (label.includes('organic') || label.includes('bio')) {
+                pros.push('Certified Organic');
+            }
+            if (label.includes('fair-trade')) {
+                pros.push('Fair Trade Certified');
+            }
+            if (label.includes('gluten-free')) {
+                pros.push('Gluten Free');
+            }
+            if (label.includes('vegan')) {
+                pros.push('Vegan');
+            }
+            if (label.includes('vegetarian')) {
+                pros.push('Vegetarian');
+            }
+        });
+    }
+    
+    // Analyze ingredients
+    if (product.ingredients_analysis_tags) {
+        product.ingredients_analysis_tags.forEach(tag => {
+            if (tag.includes('palm-oil-free')) {
+                pros.push('Palm oil free');
+            }
+            if (tag.includes('non-vegan')) {
+                neutral.push('Contains non-vegan ingredients');
+            }
+        });
+    }
+    
+    // Check additives
+    if (product.additives_tags) {
+        const additiveCount = product.additives_tags.length;
+        if (additiveCount === 0) {
+            pros.push('No additives detected');
+        } else if (additiveCount <= 3) {
+            neutral.push(`Few additives (${additiveCount})`);
+        } else if (additiveCount <= 10) {
+            cons.push(`Moderate additives (${additiveCount})`);
+        } else {
+            cons.push(`High number of additives (${additiveCount})`);
+        }
+    }
+    
+    // Analyze nutrition
+    if (product.nutriments) {
+        // Fat analysis
+        if (product.nutriments.fat) {
+            if (product.nutriments.fat > 20) {
+                cons.push(`High fat content (${product.nutriments.fat}g per 100g)`);
+            } else if (product.nutriments.fat < 3) {
+                pros.push('Low fat content');
+            }
+        }
+        
+        // Sugar analysis
+        if (product.nutriments.sugars) {
+            if (product.nutriments.sugars > 15) {
+                cons.push(`High sugar content (${product.nutriments.sugars}g per 100g)`);
+            } else if (product.nutriments.sugars < 5) {
+                pros.push('Low sugar content');
+            }
+        }
+        
+        // Salt analysis
+        if (product.nutriments.salt) {
+            if (product.nutriments.salt > 1.5) {
+                cons.push(`High salt content (${product.nutriments.salt}g per 100g)`);
+            } else if (product.nutriments.salt < 0.3) {
+                pros.push('Low salt content');
+            }
+        }
+        
+        // Protein analysis
+        if (product.nutriments.proteins && product.nutriments.proteins > 10) {
+            pros.push(`Good protein source (${product.nutriments.proteins}g per 100g)`);
+        }
+        
+        // Fiber analysis
+        if (product.nutriments.fiber && product.nutriments.fiber > 6) {
+            pros.push(`High fiber content (${product.nutriments.fiber}g per 100g)`);
+        }
+    }
+    
+    // Check allergens
+    if (product.allergens_tags && product.allergens_tags.length > 0) {
+        const allergens = product.allergens_tags
+            .map(a => a.replace('en:', '').replace(/-/g, ' '))
+            .join(', ');
+        neutral.push(`Contains allergens: ${allergens}`);
+    }
+    
+    // Manufacturing location
+    if (product.manufacturing_places || product.origins) {
+        const location = product.manufacturing_places || product.origins;
+        neutral.push(`Made in: ${location}`);
+    }
+    
+    // Default message if no analysis available
+    if (pros.length === 0 && cons.length === 0 && neutral.length === 0) {
+        neutral.push('Complete nutritional analysis not available');
+        neutral.push('Check product packaging for detailed information');
+    }
+    
+    return { pros, cons, neutral };
+}
+
+function displayNotFound(barcode) {
+    document.getElementById('scan-result').style.display = 'block';
+    document.getElementById('product-info').innerHTML = `
+        <div class="product-detail">
+            <h4>❌ Product Not Found</h4>
+            <p><strong>Barcode:</strong> ${barcode}</p>
+            <p>This product is not in the Open Food Facts database yet.</p>
+            <p>You can help by adding it at <a href="https://world.openfoodfacts.org/contribute" target="_blank" style="color: #ff6347;">OpenFoodFacts.org</a></p>
+            <br>
+            <button onclick="testKnownBarcode()" class="btn-scanner">Test with Sample Product</button>
+        </div>
+    `;
+}
+
+function displayError(barcode, errorMessage) {
+    document.getElementById('scan-result').style.display = 'block';
+    document.getElementById('product-info').innerHTML = `
+        <div class="product-detail cons">
+            <h4>⚠️ Error</h4>
+            <p><strong>Barcode:</strong> ${barcode}</p>
+            <p><strong>Error:</strong> ${errorMessage}</p>
+            <p>Please check your internet connection and try again.</p>
+            <br>
+            <button onclick="testKnownBarcode()" class="btn-scanner">Test with Sample Product</button>
+        </div>
+    `;
+}
+
+// Test function with a known barcode
+async function testKnownBarcode() {
+    const testBarcode = '3017620422003'; // Nutella
+    await fetchProductInfo(testBarcode);
+}
+
+// Add test button to controls
+document.addEventListener('DOMContentLoaded', function() {
+    const controls = document.querySelector('.scanner-controls');
+    controls.insertAdjacentHTML('beforeend', 
+        '<button onclick="testKnownBarcode()" class="btn-scanner" style="background: #2196F3;">Test Sample Product</button>'
+    );
+});
+
+// Debug function
+function checkQuaggaSupport() {
+    if (typeof Quagga === 'undefined') {
+        console.error('QuagGA library not loaded');
+        return false;
+    }
+    
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        console.error('Camera API not supported');
+        return false;
+    }
+    
+    return true;
+}
+
+// Clean up on page unload
+window.addEventListener('beforeunload', function() {
+    stopScanning();
+});
+
+// Check support on load
+window.addEventListener('load', function() {
+    if (!checkQuaggaSupport()) {
+        document.getElementById('scanner-status').textContent = 'Scanner not supported';
+        document.getElementById('start-scan').disabled = true;
+    }
+});
+</script>
+
+</body>
+</html>
